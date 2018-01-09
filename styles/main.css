@@ -1,0 +1,1718 @@
+html {
+  overflow-x: hidden;
+}
+
+body {
+  background-color: black;
+  margin: 0 auto;
+}
+
+.container {
+  display: block;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.loader {
+  position: fixed;
+  z-index: 99999;
+  width: 100vw;
+  height: 100vh;
+  background-color: #d1d1d1;
+  text-align: center;
+}
+
+.loader h1 {
+  display: block;
+  width: 100%;
+  height: 20%;
+  font-family: 'Aileron';
+  color: black;
+  text-align: center;
+  padding-top: 10%;
+  font-size: 52px;
+}
+
+.loader span {
+  display: block;
+  font-family: 'Quattrocento', serif;
+  color: black;
+  text-align: center;
+  margin-top: 20%;
+  font-size: 22px;
+}
+
+.loader img {
+  display: inline-block;
+}
+
+.loader img.n1 {
+  margin-right: 10%;
+}
+
+.loader.disappear {
+  animation: transition-disappear;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.container .bloc {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container .wallpaper-home-bloc {
+  width: 150%;
+  height: 150%;
+  left: -400px;
+  top: -100px;
+  background-color: black;
+}
+
+.container .bloc.transport-bloc {
+  display: none;
+}
+
+.container .wallpaper-transport-bloc {
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/road.jpeg');
+  background-repeat: no-repeat;
+  /* fallback color */
+  background-color: black;
+  background-position: center;
+  background-size: cover;
+}
+
+.container .bloc.materials-bloc {
+  display: none;
+}
+
+.container .wallpaper-materials-bloc {
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/shuttle-hangar.png');
+  background-repeat: no-repeat;
+  /* fallback color */
+  background-color: black;
+  background-position: center;
+  background-size: cover;
+}
+
+.container .bloc.work-bloc {
+  display: none;
+}
+
+.container .wallpaper-work-bloc {
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/background-construction.png');
+  background-repeat: no-repeat;
+  /* fallback color */
+  background-color: black;
+  background-position: center;
+  background-size: cover;
+}
+
+.container .wallpaper-end-bloc {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/sky.png');
+  background-repeat: no-repeat;
+  /* fallback color */
+  background-color: black;
+  background-position: center;
+  background-size: cover;
+}
+
+.container .bloc.end-bloc {
+  display: none;
+}
+
+.container .bloc.start-left {
+  animation-name: bloc-transition-left;
+  animation-duration: 1.5s;
+  animation-iteration-count: 1;
+}
+
+.container .bloc.start-right {
+  animation-name: bloc-transition-right;
+  animation-duration: 1.5s;
+  animation-iteration-count: 1;
+}
+
+@keyframes bloc-transition-left {
+  0% {
+    left: -200vw;
+    transform: skew(5deg);
+    width: 120vw;
+    height: 120vh;
+  }
+  30% {
+    transform: skew(3deg);
+  }
+  70% {
+    left: 0;
+  }
+  90% {
+    transform: skew(0deg);
+  }
+  100% {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+@keyframes bloc-transition-right {
+  0% {
+    left: 200vw;
+    width: 250vw;
+    height: 250vh;
+  }
+  30% {
+    transform: skew(-3deg);
+  }
+  70% {
+    left: 0;
+  }
+  90% {
+    transform: skew(0deg);
+  }
+  100% {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+.container .layer div {
+  position: absolute;
+}
+
+/****************************
+
+			BLOCS
+
+***************************/
+
+.container .logo {
+  position: absolute;
+  z-index: 4;
+  top: 3%;
+  left: 5%;
+}
+
+.container .citations .citation {
+  position: absolute;
+  display: none;
+  z-index: 999;
+  width: 25vw;
+  height: 10vh;
+  top: 50%;
+  left: 70%;
+  font-size: 15px;
+  color: #fefefe;
+}
+
+.container .citations .citation.appear {
+  animation: transition-appear;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.container .citations .citation.disappear {
+  animation: transition-disappear;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.container .citations .number {
+  width: 65px;
+  height: 20px;
+  margin: 10px 0px 0px 10px;
+  font-family: 'Aileron';
+  border-bottom: 1px solid #fefefe;
+}
+
+.container .citations .author {
+  margin: 10px 0px 0px 10px;
+  font-family: 'AileronLightItalic';
+}
+
+.container .citations .quote {
+  margin: 10px 10px 0px 10px;
+  font-family: 'AileronLightItalic';
+  line-height: 20px;
+}
+
+.container .button {
+  position: absolute;
+  z-index: 4;
+  width: 120px;
+  height: 40px;
+  font-family: 'Aileron';
+  font-size: 15px;
+  color: #fefefe;
+  border-bottom: 1px solid #fefefe;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.container .button:hover {
+  font-size: 17px;
+  border-bottom: 3px solid #fefefe;
+  transition: all 0.1s ease;
+}
+
+.container .button.left {
+  display: none;
+  bottom: 10%;
+  left: 10%;
+  text-align: left;
+}
+
+.container .button.middle {
+  display: none;
+  bottom: 10%;
+  left: 45%;
+  text-align: center;
+}
+
+.container .button.right {
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  text-align: right;
+}
+
+.container .bloc-title {
+  position: absolute;
+  width: 20%;
+  z-index: 4;
+  bottom: 30%;
+  left: 5%;
+  font-family: "Aileron";
+  font-size: 40px;
+  color: #fefefe;
+}
+
+.container .bloc-title.appear {
+  animation: transition-appear;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.container .bloc-title.disappear {
+  animation: transition-disappear;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.container .bloc-quote {
+  position: absolute;
+  display: block;
+  width: 20%;
+  z-index: 4;
+  bottom: 10%;
+  left: 5%;
+  font-style: italic;
+  line-height: 30px;
+  font-family: 'Quattrocento', serif;
+  font-size: 17px;
+  color: #fefefe;
+}
+
+.container .bubble.appear {
+  animation: transition-appear;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.container .bubble.home {
+  position: absolute;
+  display: block;
+  z-index: 4;
+  top: 30%;
+  right: 30%;
+  width: 25px;
+  height: 25px;
+  border-radius: 100px;
+  border: solid 1px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.container .bubble.home:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+.container .bubble-text {
+  display: none;
+  z-index: 4;
+  font-family: 'Quattrocento', serif;
+  color: #fefefe;
+  cursor: default;
+}
+
+.container .bubble-text.appear {
+  animation: transition-appear;
+  animation-duration: 0.7s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.container .bubble-text.disappear {
+  animation: transition-disappear;
+  animation-duration: 0.7s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.container .bubble-text.text-home {
+  width: 200px;
+  height: 150px;
+  margin-top: 30px;
+  margin-left: 30px;
+  line-height: 20px;
+}
+
+.container .bubble.material {
+  position: absolute;
+  display: none;
+  z-index: 4;
+  top: 50%;
+  right: 50%;
+  width: 25px;
+  height: 25px;
+  border-radius: 100px;
+  border: solid 1px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.container .bubble.material:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+.container .bubble-text.text-material {
+  margin-top: 30px;
+  margin-left: 30px;
+  line-height: 20px;
+  width: 200px;
+  height: 150px;
+}
+
+.container .bubble.work {
+  position: absolute;
+  display: none;
+  z-index: 4;
+  top: 30%;
+  left: 40%;
+  width: 25px;
+  height: 25px;
+  border-radius: 100px;
+  border: solid 1px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.container .bubble.work:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+.container .bubble-text.text-work {
+  display: none;
+  margin-top: 30px;
+  margin-left: 30px;
+  line-height: 20px;
+  width: 200px;
+  height: 150px;
+}
+
+.container .bubble.transport {
+  position: absolute;
+  display: none;
+  z-index: 4;
+  top: 30%;
+  right: 25%;
+  width: 25px;
+  height: 25px;
+  border-radius: 100px;
+  border: solid 1px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.container .bubble.transport:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+.container .bubble-text.text-transport {
+  display: none;
+  margin-top: 30px;
+  margin-left: 30px;
+  line-height: 20px;
+  width: 200px;
+  height: 150px;
+}
+
+.container .bubble.end {
+  position: absolute;
+  display: none;
+  z-index: 4;
+  top: 20%;
+  right: 35%;
+  width: 25px;
+  height: 25px;
+  border-radius: 100px;
+  border: solid 1px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.container .bubble.end:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+.container .bubble-text.text-end {
+  display: none;
+  margin-top: 30px;
+  margin-left: 30px;
+  line-height: 20px;
+  width: 200px;
+  height: 150px;
+}
+
+@keyframes transition-appear {
+  0% {
+    opacity: 0;
+    display: none;
+  }
+  100% {
+    opacity: 1;
+    display: block;
+  }
+}
+
+@keyframes transition-disappear {
+  0% {
+    opacity: 1;
+    display: block;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+/****************************
+
+			BLOC LAYERS
+
+***************************/
+
+.container .window {
+  top: 50%;
+  left: 100px;
+}
+
+.container .window img {
+  width: 1200px;
+}
+
+.container .window-border {
+  top: 140px;
+  left: 300px;
+}
+
+.container .window-border img {
+  width: 800px;
+}
+
+/****************************
+
+			PAGE 1 LAYERS
+
+***************************/
+
+.container .transport-truck {
+  top: 250px;
+  left: 200px;
+}
+
+.container .transport-truck img {
+  width: 1000px;
+  transform: rotate(2deg);
+}
+
+/****************************
+
+			PAGE 2 LAYERS
+
+***************************/
+
+.container .hangar-shuttle {
+  top: 0px;
+  left: -200px;
+}
+
+.container .hangar-shuttle img {
+  transform: rotate(5deg);
+  width: 2000px;
+  height: 1000px;
+}
+
+.container .hangar-workers {
+  top: 500px;
+  left: 200px;
+}
+
+.container .hangar-workers img {
+  width: 400px;
+  opacity: 0.95;
+}
+
+/****************************
+
+			PAGE 3 LAYERS
+
+***************************/
+
+.container .work-shuttle {
+  top: 200px;
+  left: 300px;
+}
+
+.container .work-shuttle img {
+  width: 1000px;
+}
+
+.container .work-birds {
+  top: 200px;
+  left: -50px;
+  animation: bird-fly 80s ease infinite backwards;
+}
+
+.container .work-birds img {
+  width: 40px;
+}
+
+@keyframes bird-fly {
+  0% {
+    left: -50px;
+    top: 200px;
+  }
+  25% {
+    top: 240px;
+  }
+  50% {
+    top: 200px;
+  }
+  70% {
+    top: 160px;
+  }
+  100% {
+    top: 200px;
+    left: 1500px;
+  }
+}
+
+/****************************
+
+			PAGE END LAYERS
+
+***************************/
+
+.container .clouds {
+  top: 0px;
+  left: 0px;
+}
+
+.container .clouds img {
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.95;
+}
+
+.container .cloud {
+  top: 150px;
+  left: 0px;
+}
+
+.container .cloud img {
+  width: 2500px;
+  opacity: 0.65;
+}
+
+.container .shuttle-page-1 {
+  top: 80px;
+  left: 200px;
+}
+
+.container .shuttle-page-1 img {
+  width: 1000px;
+}
+
+/****************************
+
+			PAGE 1 CSS
+
+***************************/
+
+.page1-data-bloc {
+  display: none;
+}
+
+.page1-data-bloc .bloc-1 {
+  display: inline-block;
+  width: 100vw;
+  height: 100vh;
+}
+
+.page1-data-bloc .bloc-2 {
+  display: inline-block;
+  width: 100vw;
+  height: 80vh;
+  margin-bottom: 20vh;
+}
+
+.page1-data-bloc .bloc-3 {
+  display: inline-block;
+  width: 100vw;
+  height: 30vw;
+}
+
+.page1-data-bloc .titles {
+  display: inline-block;
+  width: 40vw;
+  height: 50vh;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  color: #fefefe;
+}
+
+.page1-data-bloc .titles .title.head {
+  display: block;
+  font-family: 'Aileron';
+  font-size: 20px;
+  margin-bottom: 5vh;
+}
+
+.page1-data-bloc .titles .title.main {
+  display: block;
+  font-family: 'AileronBold';
+  font-size: 40px;
+  margin-bottom: 5vh;
+}
+
+.page1-data-bloc .titles .title.quote {
+  display: block;
+  font-family: 'AileronUltraLight';
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.page1-data-bloc .titles .title.quote.appear {
+  animation: transition-appear;
+  animation-duration: 0.7s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.page1-data-bloc .titles .title.quote.disappear {
+  animation: transition-disappear;
+  animation-duration: 0.7s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.page1-data-bloc .ship-parts {
+  display: inline-block;
+  position: relative;
+  width: 30vw;
+  height: auto;
+}
+
+.page1-data-bloc .ship-parts img {
+  display: inline-block;
+  width: 25%;
+}
+
+.page1-data-bloc .button {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  border-radius: 100%;
+  border: 1px solid rgb(255, 255, 255);
+  background: rgba(116, 130, 138, 0);
+  box-sizing: border-box;
+  transition: all 300ms ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.page1-data-bloc .button:hover {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.6);
+  color: #000000;
+}
+
+.page1-data-bloc .dragon .button.n1 {
+  top: 0;
+  left: 8%;
+}
+
+.page1-data-bloc .dragon .button.n2 {
+  top: 40%;
+  left: 8%;
+}
+
+.page1-data-bloc .structure .button.n1 {
+  top: 0;
+  left: 8%;
+}
+
+.page1-data-bloc .structure .button.n2 {
+  top: 40%;
+  left: 8%;
+}
+
+.page1-data-bloc .rocket .button.n1 {
+  top: 40%;
+  left: 5%;
+}
+
+.page1-data-bloc .rocket .button.n2 {
+  bottom: 25%;
+  left: 15%;
+}
+
+.page1-data-bloc .rocket .button.n3 {
+  bottom: 10%;
+  left: 8%;
+}
+
+/****************************
+
+			PAGE 2 CSS
+
+***************************/
+
+.page2-data-bloc {
+  display: none;
+}
+
+.page2-data-bloc .bloc-1 {
+  display: inline-block;
+  width: 100vw;
+  height: 90vh;
+}
+
+.page2-data-bloc .titles {
+  display: inline-block;
+  width: 40vw;
+  height: 90vh;
+  padding-top: 10vh;
+  text-align: left;
+  padding-left: 50px;
+  margin-right: 15vw;
+}
+
+.page2-data-bloc .titles .title {
+  display: block;
+  color: #FFFFFF;
+}
+
+.page2-data-bloc .titles .title.head {
+  font-size: 20px;
+  font-family: 'Aileron';
+  margin-bottom: 5vh;
+}
+
+.page2-data-bloc .titles .title.main {
+  font-size: 40px;
+  font-family: 'AileronBold';
+  margin-bottom: 5vh;
+}
+
+.page2-data-bloc .titles .title.quote {
+  font-size: 20px;
+  font-family: 'AileronUltraLight';
+  font-weight: regular;
+  line-height: 40px;
+}
+
+.page2-data-bloc .bloc-1 .falcon {
+  position: relative;
+  display: inline-block;
+  width: 40vw;
+  height: 90vh;
+  padding-top: 10vh;
+}
+
+.page2-data-bloc .bloc-1 .falcon .falcon-image {
+  display: inline-block;
+  width: 40px;
+  margin-right: 10%;
+}
+
+.page2-data-bloc .bloc-1 .falcon .button {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 2%;
+  border-radius: 100px;
+  border: 1px solid rgb(255, 255, 255);
+  background-color: grey;
+  color: rgb(255, 254, 254);
+  text-decoration: none;
+  transition: all 300ms ease;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.page2-data-bloc .bloc-1 .falcon .button:hover {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #000000;
+  transition: all 300ms ease;
+}
+
+.page2-data-bloc .bloc-1 .falcon .falcon-text {
+  display: inline-block;
+  width: 70%;
+  height: 50%;
+  color: #fefefe;
+  font-size: 20px;
+  font-family: 'AileronUltraLight';
+  font-weight: regular;
+  line-height: 40px;
+}
+
+.page2-data-bloc .bloc-1 .falcon .falcon-text.appear {
+  animation: transition-appear;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.page2-data-bloc .bloc-1 .falcon .falcon-text.disappear {
+  animation: transition-disappear;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.page2-data-bloc .bloc-1 .falcon .button.circle1 {
+  top: 10%;
+}
+
+.page2-data-bloc .bloc-1 .falcon .button.circle2 {
+  top: 215px;
+}
+
+.page2-data-bloc .bloc-1 .falcon .button.circle3 {
+  top: 290px;
+}
+
+.page2-data-bloc .bloc-1 .falcon .button.circle4 {
+  top: 400px;
+}
+
+.page2-data-bloc .bloc-1 .falcon .button.circle5 {
+  top: 560px;
+}
+
+.page2-data-bloc .bloc-2 {
+  display: inline-block;
+  width: 100vw;
+  height: 80vh;
+}
+
+.page2-data-bloc .bloc-2 .titles {
+  display: inline-block;
+  width: 40vw;
+  height: 100%;
+}
+
+.page2-data-bloc .bloc-2 .buttons {
+  width: 100%;
+  height: 6%;
+  margin-top: 40px;
+}
+
+.page2-data-bloc .bloc-2 .buttons .button {
+  display: inline-block;
+  width: 15%;
+  height: 100%;
+  color: #fefefe;
+  font-family: 'AileronBold';
+  text-align: center;
+  padding-top: 5px;
+  border: 1px solid #fefefe;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: border 0.3s ease;
+}
+
+.page2-data-bloc .bloc-2 .buttons .button:hover {
+  border: 1px solid #0E5B8B;
+  transition: border 0.3s ease;
+}
+
+.page2-data-bloc .bloc-2 .round {
+  display: inline-block;
+  position: relative;
+  width: 288px;
+  height: 288px;
+  border-radius: 100%;
+  border: solid 1px #0E5B8B;
+}
+
+.page2-data-bloc .bloc-2 .round .round-quote span {
+  position: absolute;
+  display: inline-block;
+  color: #FFFFFF;
+}
+
+.page2-data-bloc .bloc-2 .round .round-quote .round-number {
+  top: 20%;
+  left: 26%;
+  font-family: 'AileronBold';
+  font-size: 100px;
+}
+
+.page2-data-bloc .bloc-2 .round .round-quote .round-number.appear {
+  color: #FFFFFF;
+  animation: transition-appear;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.page2-data-bloc .bloc-2 .round .round-quote .round-number.disappear {
+  animation: transition-disappear;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.page2-data-bloc .bloc-2 .round .round-quote .round-unit {
+  bottom: 30%;
+  left: 37%;
+  font-family: 'AileronLight';
+  font-size: 15px;
+}
+
+.page2-data-bloc .bloc-2 .round .round-description {
+  display: inline-block;
+  position: absolute;
+  bottom: -60%;
+  width: 100%;
+  height: 50%;
+  color: #fefefe;
+  font-family: 'Aileron';
+  font-size: 15px;
+  line-height: 30px;
+}
+
+.page2-data-bloc .bloc-2 .round .round-description.appear {
+  animation: transition-appear;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.page2-data-bloc .bloc-2 .round .round-description.disappear {
+  animation: transition-disappear;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.page2-data-bloc .bloc-3 {
+  display: inline-block;
+  position: relative;
+  width: 100vw;
+  height: 70vh;
+}
+
+.page2-data-bloc .bloc-3 .map {
+  display: inline-block;
+  position: absolute;
+  width: 70%;
+  top: -10%;
+  left: 10%;
+}
+
+.page2-data-bloc .bloc-3 .map-button {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  border-radius: 100%;
+  border: solid 3px #0E5B8B;
+  cursor: pointer;
+  transition: all 0.3s
+}
+
+.page2-data-bloc .bloc-3 .map-button:hover {
+  background-color: #0E5B8B;
+  transition: background-color 0.3s ease;
+}
+
+.page2-data-bloc .bloc-3 .map-button.button-1 {
+  top: 0%;
+  left: 13%;
+}
+
+.page2-data-bloc .bloc-3 .map-button.button-2 {
+  top: 48%;
+  left: 15%;
+}
+
+.page2-data-bloc .bloc-3 .map-button.button-3 {
+  top: 70%;
+  left: 45%;
+}
+
+.page2-data-bloc .bloc-3 .map-button.button-4 {
+  top: 73%;
+  left: 66%;
+}
+
+.page2-data-bloc .bloc-3 .map-button.button-5 {
+  top: 32%;
+  right: 30%;
+}
+
+.page2-data-bloc .bloc-3 .map-description {
+  display: inline-block;
+  position: absolute;
+  width: 20%;
+  height: 15%;
+  bottom: 10%;
+  left: 5%;
+  color: #fefefe;
+  font-family: 'Aileron';
+  font-size: 23px;
+  border-top: solid 1px #0E5B8B;
+  border-bottom: solid 1px #0E5B8B;
+}
+
+.page2-data-bloc .bloc-3 .map-description.appear {
+  animation: transition-appear;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.page2-data-bloc .bloc-3 .map-description.disappear {
+  animation: transition-disappear;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1088px) {
+  .page2-data-bloc .bloc-3 {
+    height: 60vh;
+  }
+  .page2-data-bloc .bloc-3 .map-description {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1000px) {
+  .page2-data-bloc .bloc-1 .falcon {
+    width: 30vw;
+    height: 30vh;
+    padding-top: 0vh;
+  }
+  .page2-data-bloc .bloc-3 {
+    height: 50vh;
+  }
+  .page2-data-bloc .bloc-3 .map-description {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 700px) and (max-width: 768px) {
+  .page2-data-bloc .bloc-3 {
+    height: 40vh;
+  }
+  .page2-data-bloc .bloc-3 .map-button {
+    width: 20px;
+    height: 20px;
+  }
+  .page2-data-bloc .bloc-3 .map-description {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 700px) {
+  .page2-data-bloc .bloc-3 {
+    height: 35vh;
+  }
+  .page2-data-bloc .bloc-3 .map-button {
+    width: 20px;
+    height: 20px;
+  }
+  .page2-data-bloc .bloc-3 .map-description {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 600px) {
+  .page2-data-bloc .bloc-3 {
+    height: 30vh;
+  }
+  .page2-data-bloc .bloc-3 .map-button {
+    width: 20px;
+    height: 20px;
+  }
+  .page2-data-bloc .bloc-3 .map-description {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 1088px) {
+  .page2-data-bloc .bloc-1 .falcon .falcon-text {
+    height: 20%;
+    line-height: 25px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 768px) {
+  .page2-data-bloc .titles {
+    padding-top: 0;
+    margin-right: 0;
+  }
+  .page2-data-bloc .bloc-1 .falcon {
+    width: 50vw;
+    height: 30vh;
+    padding-top: 0vh;
+  }
+  .page2-data-bloc .bloc-2 .buttons .button {
+    width: 20%;
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 570px) {
+  .page2-data-bloc .bloc-2 .round {
+    width: 200px;
+    height: 200px;
+  }
+  .page2-data-bloc .bloc-2 .round .round-quote .round-number {
+    font-size: 60px;
+    left: 30%;
+  }
+  .page2-data-bloc .bloc-2 .round .round-quote .round-unit {
+    left: 35%;
+  }
+}
+
+/****************************
+
+			PAGE 3 CSS
+
+***************************/
+
+.page4-data-bloc {
+  display: none;
+}
+
+.page4-data-bloc .bloc-1 {
+  display: inline-block;
+  width: 100vw;
+  height: auto;
+}
+
+.page4-data-bloc .titles {
+  display: inline-block;
+  width: 40vw;
+  height: 30vh;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  color: #fefefe;
+}
+
+.page4-data-bloc .titles .title.head {
+  display: block;
+  font-family: 'Aileron';
+  font-size: 20px;
+  margin-bottom: 2vh;
+  text-transform: uppercase;
+}
+
+.page4-data-bloc .titles .title.main {
+  display: block;
+  font-family: 'AileronBold';
+  font-size: 40px;
+  margin-bottom: 5vh;
+  text-transform: uppercase;
+}
+
+.page4-data-bloc .titles .title.quote {
+  display: block;
+  font-family: 'AileronUltraLight';
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.page4-data-bloc .road {
+  display: inline-block;
+  position: relative;
+  padding-top: 10vh;
+  width: 30vw;
+  height: 100vh;
+}
+
+.page4-data-bloc .road .button {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  border-radius: 100%;
+  border: 1px solid rgb(255, 255, 255);
+  background: rgba(116, 130, 138, 0);
+  box-sizing: border-box;
+  transition: all 300ms ease;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.page4-data-bloc .road .button:hover {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.6);
+  color: #000000;
+}
+
+.page4-data-bloc .road .button.n1 {
+  top: 10%;
+  left: 0;
+}
+
+.page4-data-bloc .road .button.n2 {
+  top: 30%;
+  left: 0;
+}
+
+.page4-data-bloc .road .button.n3 {
+  top: 50%;
+  left: 0;
+}
+
+.page4-data-bloc .road .button.n4 {
+  top: 70%;
+  left: 0;
+}
+
+.page4-data-bloc .road-bloc {
+  display: inline-block;
+  width: 10%;
+  height: 80%;
+}
+
+.page4-data-bloc .road-bloc.left {
+  border-right: 1px solid;
+  border-image: linear-gradient(to top, #fefefe, rgba(0, 0, 0, 0)) 1 100%;
+  transform: skew(-15deg);
+}
+
+.page4-data-bloc .road-bloc.middle {
+  position: relative;
+  width: 70%;
+}
+
+.page4-data-bloc .road-bloc.middle .road-quote {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 15%;
+  width: 200px;
+  height: 100px;
+  border-left: solid 5px #fefefe;
+}
+
+.page4-data-bloc .road-bloc.middle .road-quote.appear {
+  animation: transition-appear;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.page4-data-bloc .road-bloc.middle .road-quote.disappear {
+  animation: transition-disappear;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.page4-data-bloc .road-bloc.middle .road-quote .quote-title {
+  display: block;
+  width: 100%;
+  height: 30%;
+  margin-left: 30px;
+  font-family: 'Aileron';
+  font-size: 15px;
+  color: #fefefe;
+  border-bottom: solid 2px #fefefe;
+}
+
+.page4-data-bloc .road-bloc.middle .road-quote .quote-text {
+  display: block;
+  width: 100%;
+  height: 60%;
+  margin-top: 10px;
+  margin-left: 30px;
+  font-family: 'AileronUltraLight';
+  font-size: 15px;
+  color: #fefefe;
+  line-height: 30px;
+}
+
+.page4-data-bloc .road-bloc.right {
+  border-left: 1px solid;
+  border-image: linear-gradient(to top, #fefefe, rgba(0, 0, 0, 0)) 1 100%;
+  transform: skew(15deg);
+}
+
+@media screen and (min-width: 300px) and (max-width: 680px) {
+  .page4-data-bloc .road {
+    display: block;
+    width: 100vw;
+    height: 80vh;
+  }
+  .page4-data-bloc .road .button.n1 {
+    left: 30%;
+  }
+  .page4-data-bloc .road .button.n2 {
+    left: 30%;
+  }
+  .page4-data-bloc .road .button.n3 {
+    left: 30%;
+  }
+  .page4-data-bloc .road .button.n4 {
+    left: 30%;
+  }
+  .page4-data-bloc .road-bloc.middle .road-quote {
+    left: 50%;
+  }
+}
+
+/****************************
+
+			PAGE 5 CSS
+
+***************************/
+
+.page5-data-bloc {
+  display: none;
+}
+
+.page5-data-bloc .bloc-1 {
+  display: inline-block;
+  width: 100vw;
+  height: 100vh;
+}
+
+.page5-data-bloc .bloc-1 .rounds-quote {
+  display: inline-block;
+  visibility: hidden;
+  width: 20%;
+  height: 50vh;
+  margin-top: 10vh;
+  margin-left: 10vw;
+  background-color: rgba(34, 91, 128, 0.20);
+  border-left: solid 5px #fefefe;
+  font-size: 20px;
+  color: #fefefe;
+  font-family: 'Aileron';
+}
+
+.page5-data-bloc .bloc-1 .rounds-quote.appear {
+  animation: transition-appear;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.page5-data-bloc .bloc-1 .rounds-quote.disappear {
+  animation: transition-disappear;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.page5-data-bloc .bloc-1 .rounds-quote .first-floor {
+  display: block;
+  width: 100%;
+  height: 25%;
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+.page5-data-bloc .bloc-1 .rounds-quote .first-floor div {
+  display: inline-block;
+  width: 20%;
+  height: 20%;
+  margin-left: 5%;
+  margin-right: 30px;
+  margin-top: 5%;
+}
+
+.page5-data-bloc .bloc-1 .rounds-quote .first-floor .title-1 {
+  display: inline-block;
+  text-transform: uppercase;
+  border-bottom: solid 2px #fefefe;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.page5-data-bloc .bloc-1 .rounds-quote .first-floor .number-1 {
+  display: inline-block;
+  font-size: 17px;
+  font-family: 'AileronBold';
+}
+
+.page5-data-bloc .bloc-1 .rounds-quote .second-floor {
+  display: block;
+  width: 50%;
+  height: 20%;
+  margin-left: 12%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.page5-data-bloc .bloc-1 .rounds-quote .second-floor .title-1 {
+  display: block;
+  text-transform: uppercase;
+  border-bottom: solid 2px #fefefe;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.page5-data-bloc .bloc-1 .rounds-quote .second-floor .number-1 {
+  display: block;
+  font-size: 17px;
+  font-family: 'AileronBold';
+}
+
+.page5-data-bloc .bloc-1 .rounds-quote .third-floor {
+  display: block;
+  width: 50%;
+  height: 30%;
+  margin-left: 12%;
+}
+
+.page5-data-bloc .bloc-1 .rounds-quote .third-floor .title-1 {
+  display: block;
+  text-transform: uppercase;
+  border-bottom: solid 2px #fefefe;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.page5-data-bloc .bloc-1 .rounds-quote .third-floor .number-1 {
+  display: block;
+  font-size: 17px;
+  font-family: 'AileronBold';
+}
+
+.page5-data-bloc .bloc-1 .rounds {
+  display: inline-block;
+  width: 40%;
+  height: 50vh;
+  margin-top: 10vh;
+  margin-left: 15vw;
+}
+
+.page5-data-bloc .bloc-1 .rounds .big-round {
+  border: solid 1px #0E5B8B;
+  border-radius: 100%;
+  width: 300px;
+  height: 300px;
+  margin-top: 10vh;
+  animation: round-big-rotation infinite 30s linear;
+}
+
+@keyframes round-big-rotation {
+  0% {
+    transform: rotate(0deg);
+    transform-origin: center;
+  }
+  100% {
+    transform: rotate(360deg);
+    transform-origin: center;
+  }
+}
+
+@keyframes round-logo-rotation {
+  0% {
+    transform: rotate(360deg);
+    transform-origin: center;
+  }
+  100% {
+    transform: rotate(0deg);
+    transform-origin: center;
+  }
+}
+
+.page5-data-bloc .bloc-1 .round {
+  position: absolute;
+  border: solid 1px #0E5B8B;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.page5-data-bloc .bloc-1 .round:hover {
+  background-color: #fefefe;
+  opacity: 0.3;
+  transition: all 0.3s ease;
+}
+
+.page5-data-bloc .bloc-1 .big-round .round.n1 {
+  top: 100%;
+  left: 100%;
+  width: 100px;
+  height: 100px;
+}
+
+.page5-data-bloc .bloc-1 .big-round .round.n2 {
+  top: -50%;
+  left: 80%;
+  width: 50px;
+  height: 50px;
+}
+
+.page5-data-bloc .bloc-1 .big-round .round.n3 {
+  top: 45%;
+  left: -50%;
+  width: 35px;
+  height: 35px;
+}
+
+.page5-data-bloc .bloc-1 .big-round .round.n4 {
+  top: 35%;
+  left: 110%;
+  width: 25px;
+  height: 25px;
+}
+
+.page5-data-bloc .bloc-1 .big-round .round.n5 {
+  top: 75%;
+  left: -60%;
+  width: 45px;
+  height: 45px;
+}
+
+.page5-data-bloc .bloc-1 .big-round .logo-round {
+  display: inline-block;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  width: 200px;
+  animation: round-logo-rotation infinite 30s linear;
+}
+
+@media screen and (min-width: 300px) and (max-width: 768px) {
+  .page5-data-bloc .bloc-1 .rounds .big-round {
+    width: 100px;
+    height: 100px;
+  }
+  .page5-data-bloc .bloc-1 .big-round .logo-round {
+    width: 50px;
+  }
+  .page5-data-bloc .bloc-1 .rounds-quote {
+    height: 80vh;
+  }
+}
+
+/****************************
+
+			MEDIA QUERIES
+
+***************************/
+
+@media screen and (min-width: 300px) and (max-width: 978px) {
+  .container .wallpaper-home-bloc {
+    background-image: url("../images/responsive/home-background.png");
+    width: 100%;
+    height: 100%;
+  }
+  .container .citations .citation {
+    left: 50%;
+  }
+  .container .window {
+    display: none;
+  }
+  .container .window-border {
+    display: none;
+  }
+  .container .wallpaper-transport-bloc {
+    background-image: url("../images/responsive/transport-background.jpg")
+  }
+  .container .transport-truck {
+    display: none;
+  }
+  .container .hangar-workers {
+    display: none;
+  }
+  .container .hangar-workers img {
+    display: none;
+  }
+  .container .wallpaper-work-bloc {
+    background-image: url("../images/responsive/work-background.png")
+  }
+  .container .work-shuttle {
+    display: none;
+  }
+  .container .wallpaper-end-bloc {
+    background-image: url("../images/responsive/end-background.png")
+  }
+  .container .clouds {
+    display: none;
+  }
+  .container .shuttle-page-1 {
+    display: none;
+  }
+  .container .bubbles {
+    display: none;
+  }
+  .container .bloc-quote {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .container .button-right {
+    right: 20px;
+    width: 20%;
+  }
+  .container .button-left {
+    left: 10%;
+    width: 20%;
+  }
+  .container .button-middle {
+    width: 20%;
+    font-size: 17px;
+    left: 40%;
+  }
+}
